@@ -1,6 +1,6 @@
 import * as functions from 'firebase-functions';
 import { App, ExpressReceiver } from '@slack/bolt';
-import * as DoughnutsReferee from '../modules/DoughnutsReferee';
+import * as UsagiReferee from '../modules/UsagiReferee';
 
 const config = functions.config();
 
@@ -15,7 +15,7 @@ const app = new App({
     token: config.slack.token,
 });
 
-app.message(DoughnutsReferee.makeRegexp(), async ({ message, client, body }) => {
+app.message(UsagiReferee.makeRegexp(), async ({ message, client, body }) => {
     await client.reactions.add({
         name: 'usagi',
         channel: message.channel,
