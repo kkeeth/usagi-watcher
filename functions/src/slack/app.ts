@@ -17,7 +17,7 @@ const app = new App({
 
 app.message(DoughnutsReferee.makeRegexp(), async ({ message, client, body }) => {
     await client.reactions.add({
-        name: 'doughnut',
+        name: 'usagi',
         channel: message.channel,
         timestamp: message.ts,
     })
