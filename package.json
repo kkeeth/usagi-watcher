@@ -1,14 +1,14 @@
 {
-  "name": "doughnuts-watcher",
+  "name": "usagi-watcher",
   "version": "1.0.0",
-  "description": "ドーナツに関する投稿をいつも見ている",
+  "description": "ウサギに関する投稿をいつも見ている",
   "main": "index.js",
   "scripts": {
     "serve": "npm --prefix=functions run serve",
     "build": "npm --prefix=functions run build",
     "deploy": "npm --prefix=functions run deploy"
   },
-  "author": "okomeworld",
+  "author": "kkeeth",
   "license": "ISC",
   "devDependencies": {
     "firebase-tools": "^8.18.1",
