@@ -11,6 +11,7 @@
   "author": "kkeeth",
   "license": "ISC",
   "devDependencies": {
+    "eslint-config-google": "^0.14.0",
     "firebase-tools": "^11.8.0",
     "ngrok": "^3.3.0"
   },
