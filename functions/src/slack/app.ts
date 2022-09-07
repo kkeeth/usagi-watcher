@@ -1,27 +1,19 @@
-import {App, ExpressReceiver} from "@slack/bolt";
+import { config } from "firebase-functions";
+import { App, ExpressReceiver } from "@slack/bolt";
 import * as UsagiReferee from "../modules/UsagiReferee";
-import { config } from "dotenv";
-config()
 
-const authorizeFn = async () => {
-  return {
-    botToken: process.env.SLACK_BOT_TOKEN,
-    botId: process.env.SLACK_BOT_ID,
-  };
+const { slack } = config();
 
-  throw new Error("No matching authorizations");
-};
 
 export const expressReceiver = new ExpressReceiver({
-  signingSecret: process.env.SLACK_SIGNING_SECRET || "",
+  signingSecret: slack.signing_secret,
   endpoints: "/events",
   processBeforeResponse: true,
 });
 
 const app = new App({
   receiver: expressReceiver,
-  token: process.env.SLACK_BOT_TOKEN,
-  authorize: authorizeFn,
+  token: slack.bot_token,
 });
 
 app.message(UsagiReferee.makeRegexp(), async ({message, client}) => {
